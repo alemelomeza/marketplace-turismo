@@ -15,4 +15,7 @@
     </div>
   </div>
 </section>
+
+<!-- activities -->
+@livewire('activities')
 @endsection
