@@ -9,11 +9,10 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
+    @livewireStyles
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none">
     <div id="app">
@@ -111,5 +110,10 @@
         </div>
         </footer>
     </div>
+
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    @livewireScripts
 </body>
 </html>
