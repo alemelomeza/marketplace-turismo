@@ -23,7 +23,6 @@
             @endforelse
             </div>
             @if ($total)
-
                 <button
                     class="flex mx-auto mt-16 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
                     wire:click="getMore"
@@ -31,7 +30,15 @@
                     wire:loading.attr="disabled">
                     <div wire:loading.remove wire:target="getMore"> Ver más ({{  $total }}) </div> <div wire:loading wire:target="getMore">cargando...</div>
                 </button>
-
+                @if($this->showLess)
+                <button
+                    class="flex mx-auto mt-16 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
+                    wire:click="getLess"
+                    wire:loading.class="bg-gray"
+                    wire:loading.attr="disabled">
+                    <div wire:loading.remove wire:target="getLess"> Ver menos ({{  $total }}) </div> <div wire:loading wire:target="getLess">cargando...</div>
+                </button>
+                @endif
             @endif
         </div>
     </section>

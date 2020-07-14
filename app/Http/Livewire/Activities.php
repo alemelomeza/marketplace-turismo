@@ -17,6 +17,7 @@ class Activities extends Component
     {
         $this->activities = Activity::limit(self::VIEW)->get();
         $this->total = Activity::count() - self::VIEW;
+        $this->showLess = false;
     }
 
     public function getMore()
@@ -27,6 +28,18 @@ class Activities extends Component
         $this->activities = $this->activities->merge($result);
         $this->total -= count($result);
 
+    }
+
+    public function getLess()
+    {
+        $this->activities = $this->activities->take(count($this->activities) - self::VIEW);
+        $this->total += self::VIEW;
+    }
+
+    // computed property
+    public function getShowLessProperty()
+    {
+        return count($this->activities) >= 6;
     }
 
     public function render()
